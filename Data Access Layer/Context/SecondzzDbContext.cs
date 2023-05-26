@@ -9,7 +9,7 @@ namespace Secondzz.Data_Access_Layer.Context
         { }
 
         public DbSet<User> Users { get; set; }
-        
+
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         //public DbSet<Message> Messages { get; set; }
@@ -58,6 +58,13 @@ namespace Secondzz.Data_Access_Layer.Context
                 new Role { RoleId = 1, RoleName = "Admin" },
                 new Role { RoleId = 2, RoleName = "User" }
             );
-        }
+
+            modelBuilder.Entity<Category>().HasData(
+                new Category { CategoryId = 1, CategoryName = "Electronics" },
+                new Category { CategoryId = 2, CategoryName = "Vehicles" },
+                new Category { CategoryId = 3, CategoryName = "SmartPhones"}
+    );
+                }
+    
     }
 }

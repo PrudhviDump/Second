@@ -8,7 +8,7 @@ using Secondzz.Business_Logic_Layer.DTO;
 using Secondzz.Data_Access_Layer.Models;
 using Secondzz.Data_Access_Layer.Repository.Interface;
 
-namespace SwapPortal_API.Controllers
+namespace Secondzz.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -58,7 +58,7 @@ namespace SwapPortal_API.Controllers
 
         }
 
-        [HttpPut]
+        /*[HttpPut]
         [Route("{id:int}")]
 
 
@@ -71,7 +71,7 @@ namespace SwapPortal_API.Controllers
                 return NotFound();
             }
             return Ok(mapper.Map<UserDTO>(userEntity));
-        }
+        }*/
 
         [HttpDelete]
         [Route("{id:int}/admin")]
@@ -86,14 +86,5 @@ namespace SwapPortal_API.Controllers
 
             return NoContent();
         }
-        /*[HttpGet]
-        [Route("allapplicants")]
-        [Authorize(Roles = "Admin")]
-        public async Task<ActionResult<IEnumerable<ApplicationDTO>>> GetAllApplicants()
-        {
-            var userEntity = await applicationRepo.GetAllAsync();
-
-            return Ok(mapper.Map<List<ApplicationDTO>>(userEntity));
-        }*/
     }
 }
