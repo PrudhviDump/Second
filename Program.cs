@@ -11,6 +11,8 @@ using Swashbuckle.AspNetCore.Filters;
 //using SwapPortal_API.Infrastructure.Middleware;
 using System.Text;
 using SwapPortal_API.Infrastructure;
+using Second.Data_Access_Layer.Repository.Interface;
+using Second.Data_Access_Layer.Repository.Implementation;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +22,7 @@ builder.Services.AddDbContext<SecondzzDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DevConnection"));
 });
 builder.Services.AddScoped<IUserRepo, UserRepo>();
+builder.Services.AddScoped<IProductRepo, ProductRepo>();
 builder.Services.AddAutoMapper(typeof(AutoMapperProfiles));
 
 builder.Services.AddAuthentication(options =>
@@ -47,8 +50,8 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("AdminOnly", policy => policy.RequireRole("Admin"));
-    options.AddPolicy("UserOnly", policy => policy.RequireRole("Recruiter"));
-    /*options.AddPolicy("ApplicantOnly", policy => policy.RequireRole("Applicant"));*/
+    options.AddPolicy("UserOnly", policy => policy.RequireRole("User"));
+   
 });
 
 

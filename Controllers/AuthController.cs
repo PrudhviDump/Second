@@ -7,8 +7,6 @@ using Secondzz.Data_Access_Layer.Repository.Interface;
 using Secondzz.Infrastructure;
 using Secondzz.Business_Logic_Layer.DTO;
 using Secondzz.Data_Access_Layer.Context;
-using Secondzz.Data_Access_Layer.Repository.Interface;
-using Secondzz.Infrastructure;
 using System.Security.Claims;
 
 

@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Secondzz.Data_Access_Layer.Context;
 
@@ -10,9 +11,10 @@ using Secondzz.Data_Access_Layer.Context;
 namespace Secondzz.Migrations
 {
     [DbContext(typeof(SecondzzDbContext))]
-    partial class SecondzzDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230526084302_Sixx")]
+    partial class Sixx
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -67,9 +69,11 @@ namespace Secondzz.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ProductDetails")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProductImageUrl")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProductName")
@@ -80,6 +84,7 @@ namespace Secondzz.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Status")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 

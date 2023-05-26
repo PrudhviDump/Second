@@ -41,7 +41,7 @@ namespace Second.Data_Access_Layer.Repository.Implementation
 
         public async Task<Product> GetByIdAsync(int id)
         {
-            return await dbContext.Products.Include("Category").Include("User").FirstOrDefaultAsync(x => x.ProductId == id);
+            return await dbContext.Products.Include("Category").FirstOrDefaultAsync(x => x.ProductId == id);
         }
 
 

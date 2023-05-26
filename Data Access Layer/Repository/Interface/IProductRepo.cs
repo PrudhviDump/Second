@@ -2,7 +2,7 @@
 
 namespace Second.Data_Access_Layer.Repository.Interface
 {
-    public class IProductRepo
+    public interface IProductRepo
     {
         Task<Product> CreateAsync(Product product);
         Task<List<Product>> GetAllAsync();

@@ -4,9 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Secondzz.Business_Logic_Layer.DTO;
 using Secondzz.Data_Access_Layer.Models;
 using Secondzz.Data_Access_Layer.Repository.Interface;
-using Secondzz.Business_Logic_Layer.DTO;
-using Secondzz.Data_Access_Layer.Models;
-using Secondzz.Data_Access_Layer.Repository.Interface;
+
 
 namespace Secondzz.Controllers
 {
