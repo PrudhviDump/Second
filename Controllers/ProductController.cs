@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using AutoMapper.Execution;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -6,7 +7,16 @@ using Second.Business_Logic_Layer.DTO;
 using Second.Data_Access_Layer.Repository.Interface;
 using Secondzz.Business_Logic_Layer.DTO;
 using Secondzz.Data_Access_Layer.Models;
+using Secondzz.Data_Access_Layer.Repository.Implementation;
 using Secondzz.Data_Access_Layer.Repository.Interface;
+using Secondzz.Migrations;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using System.Net.NetworkInformation;
+using System.Reflection.Metadata;
+using System.Threading.Channels;
+using System.Xml.Linq;
+using System;
+using static System.Collections.Specialized.BitVector32;
 
 namespace Secondzz.Controllers
 {
@@ -82,10 +92,15 @@ namespace Secondzz.Controllers
 
             return NoContent();
         }
-
-        
-
-
-
     }
 }
+       
+    
+
+
+
+
+
+
+
+            

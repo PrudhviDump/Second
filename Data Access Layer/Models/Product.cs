@@ -31,8 +31,8 @@ namespace Secondzz.Data_Access_Layer.Models
         public int CategoryId { get; set; }
 
         public virtual Category Category { get; set; }
-        [MaxLength(50)]
-        public string Status { get; set; } = null;
+        //[MaxLength(50)]
+       // public string Status { get; set; } = null;
 
     }
 }

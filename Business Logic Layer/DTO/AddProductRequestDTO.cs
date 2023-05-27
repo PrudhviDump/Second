@@ -22,6 +22,5 @@ namespace Second.Business_Logic_Layer.DTO
 
         [ForeignKey("Category")]
         public int CategoryId { get; set; }
-        public string Status { get; set; }
     }
 }

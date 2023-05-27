@@ -21,11 +21,10 @@ namespace SwapPortal_API.Infrastructure
                 .ForMember(O => O.ProductDetails, P => P.MapFrom(src => src.ProductDetails))
                 .ForMember(O => O.ProductPrice, P => P.MapFrom(src => src.ProductPrice))
                 .ForMember(O => O.UserId, P => P.MapFrom(src => src.UserId))
-                .ForMember(O => O.CategoryId, P => P.MapFrom(src => src.CategoryId))
-                .ForMember(O => O.Status, opt =>
-                {
-                    opt.MapFrom(src => string.IsNullOrEmpty(src.Status) ? "Unknown" : src.Status);
-                });
+                .ForMember(O => O.CategoryId, P => P.MapFrom(src => src.CategoryId));
+                //.ForMember(O => O.Status, opt => opt.MapFrom(src => Status))
+            //    .ForMember(O => O.Status, opt => opt.NullSubstitute("Unverified"));
+               
             
                 
             CreateMap<UpdateUserRequestDTO, Product>().ReverseMap();

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Second.Data_Access_Layer.Models;
 using Secondzz.Data_Access_Layer.Models;
 
 namespace Secondzz.Data_Access_Layer.Context
@@ -9,7 +10,7 @@ namespace Secondzz.Data_Access_Layer.Context
         { }
 
         public DbSet<User> Users { get; set; }
-
+        public DbSet<Message>Messages { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         //public DbSet<Message> Messages { get; set; }
@@ -18,6 +19,12 @@ namespace Secondzz.Data_Access_Layer.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Message>()
+                .HasOne(m => m.Product)
+                .WithMany()
+                .HasForeignKey(m => m.ProductId)
+                .HasPrincipalKey(p => p.ProductId);
 
             /*modelBuilder.Entity<User>(entity =>
             {
