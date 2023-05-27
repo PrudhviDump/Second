@@ -27,9 +27,6 @@ namespace Secondzz.Controllers
     {
         private readonly IMapper mapper;
         private readonly IProductRepo productRepo;
-
-
-
         //Creating Constructor
         public ProductController(IMapper mapper, IProductRepo productRepo)
         {
@@ -37,11 +34,9 @@ namespace Secondzz.Controllers
             this.productRepo = productRepo;
         }
 
-
+        [AllowAnonymous]
         [HttpPost("AddProduct")]
-        //[Authorize(Roles = "Admin")]
-
-
+      //  [Authorize(Roles = "Anonymous")]
         public async Task<IActionResult> Create([FromBody] AddProductRequestDTO addProductRequestDTO)
         {
             //Map DTO to domain Model          
@@ -54,27 +49,27 @@ namespace Secondzz.Controllers
             return Ok(mapper.Map<ProductDTO>(productentity));
         }
 
-
+        [AllowAnonymous]
         [HttpGet]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = )]
         public async Task<ActionResult<IEnumerable<ProductDTO>>> GetAll()
         {
-            var QuestionEntity = await productRepo.GetAllAsync();
+            var Productentity = await productRepo.GetAllAsync();
 
-            return Ok(mapper.Map<List<ProductDTO>>(QuestionEntity));
+            return Ok(mapper.Map<List<ProductDTO>>(Productentity));
         }
 
+        [AllowAnonymous]
         [HttpGet("{id}")]
-
         public async Task<IActionResult> GetById([FromRoute] int id)
         {
-            var questionn = await productRepo.GetByIdAsync(id);
-            if (questionn == null)
+            var productt = await productRepo.GetByIdAsync(id);
+            if (productt == null)
             {
                 return NotFound();
             }
 
-            return Ok(mapper.Map<ProductDTO>(questionn));
+            return Ok(mapper.Map<ProductDTO>(productt));
 
         }
 
@@ -94,13 +89,3 @@ namespace Secondzz.Controllers
         }
     }
 }
-       
-    
-
-
-
-
-
-
-
-            
