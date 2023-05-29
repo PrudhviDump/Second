@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Second.Business_Logic_Layer.DTO;
+using Second.Data_Access_Layer.Models;
 using Secondzz.Business_Logic_Layer.DTO;
 using Secondzz.Data_Access_Layer.Models;
 using Swashbuckle.AspNetCore.Swagger;
@@ -29,6 +30,8 @@ namespace SwapPortal_API.Infrastructure
                 
             CreateMap<UpdateUserRequestDTO, Product>().ReverseMap();
             CreateMap<ProductDTO, Product>().ReverseMap();
+            CreateMap<ChatDTO, Chat>().ReverseMap();
+            CreateMap<AddChatDTO, Chat>().ReverseMap();
 
          
         }

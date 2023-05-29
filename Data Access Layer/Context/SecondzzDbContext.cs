@@ -10,7 +10,7 @@ namespace Secondzz.Data_Access_Layer.Context
         { }
 
         public DbSet<User> Users { get; set; }
-        public DbSet<Message>Messages { get; set; }
+        public DbSet<Chat>Chats { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         //public DbSet<Message> Messages { get; set; }
@@ -20,7 +20,7 @@ namespace Secondzz.Data_Access_Layer.Context
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Message>()
+            modelBuilder.Entity<Chat>()
                 .HasOne(m => m.Product)
                 .WithMany()
                 .HasForeignKey(m => m.ProductId)

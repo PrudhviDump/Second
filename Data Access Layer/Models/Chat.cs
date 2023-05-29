@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Second.Data_Access_Layer.Models
 {
-    public class Message
+    public class Chat
     {
         [Key]
         public int MessageId { get; set; }

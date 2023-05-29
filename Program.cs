@@ -23,6 +23,7 @@ builder.Services.AddDbContext<SecondzzDbContext>(options =>
 });
 builder.Services.AddScoped<IUserRepo, UserRepo>();
 builder.Services.AddScoped<IProductRepo, ProductRepo>();
+builder.Services.AddScoped<IChatRepo, ChatRepo>();
 builder.Services.AddAutoMapper(typeof(AutoMapperProfiles));
 
 builder.Services.AddAuthentication(options =>

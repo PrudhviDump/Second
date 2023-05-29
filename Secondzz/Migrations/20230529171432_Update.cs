@@ -4,7 +4,7 @@
 
 namespace Secondzz.Migrations
 {
-    public partial class SecondCreate : Migration
+    public partial class Update : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
