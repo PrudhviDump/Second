@@ -9,7 +9,6 @@ using Secondzz.Business_Logic_Layer.DTO;
 using Secondzz.Data_Access_Layer.Models;
 using Secondzz.Data_Access_Layer.Repository.Implementation;
 using Secondzz.Data_Access_Layer.Repository.Interface;
-using Secondzz.Migrations;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 using System.Net.NetworkInformation;
 using System.Reflection.Metadata;

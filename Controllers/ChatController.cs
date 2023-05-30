@@ -14,7 +14,7 @@ namespace Second.Controllers
     public class ChatController : ControllerBase
     {
         private readonly IMapper mapper;
-        private readonly IProductRepo chatRepo;
+        private readonly IChatRepo chatRepo;
         //Creating Constructor
         public ChatController(IMapper mapper, IChatRepo chatRepo)
         {
@@ -23,7 +23,7 @@ namespace Second.Controllers
         }
 
         [AllowAnonymous]
-        [HttpPost("Send Chat")]
+        [HttpPost("Send Message")]
         [Authorize(Roles = "User")]
         public async Task<IActionResult> Create([FromBody] AddChatDTO addChatDTO)
         {
@@ -37,9 +37,8 @@ namespace Second.Controllers
             return Ok(mapper.Map<ChatDTO>(chatentity));
         }
 
-        [AllowAnonymous]
         [HttpGet]
-        //[Authorize(Roles = )]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<IEnumerable<ChatDTO>>> GetAll()
         {
             var Chatentity = await chatRepo.GetAllAsync();
@@ -47,8 +46,9 @@ namespace Second.Controllers
             return Ok(mapper.Map<List<ChatDTO>>(Chatentity));
         }
 
-        [AllowAnonymous]
+        
         [HttpGet("{id}")]
+        [Authorize(Roles ="User")]
         public async Task<IActionResult> GetById([FromRoute] int id)
         {
             var chatt = await chatRepo.GetByIdAsync(id);
@@ -57,12 +57,12 @@ namespace Second.Controllers
                 return NotFound();
             }
 
-            return Ok(mapper.Map<ChatDTO>(chatt));
+            return Ok(chatt);
 
         }
 
 
-        [HttpDelete]
+        /*[HttpDelete]
 
         [Authorize(Roles = "User")]
         public async Task<IActionResult> Delete([FromRoute] int id)
@@ -74,6 +74,6 @@ namespace Second.Controllers
             }
 
             return NoContent();
-        }
+        }*/
     }
 }

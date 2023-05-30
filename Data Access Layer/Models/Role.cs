@@ -8,7 +8,7 @@ namespace Secondzz.Data_Access_Layer.Models
     {
         [Key]
         public int RoleId { get; set; }
-        [Required]
+       // [Required]
         [Column(TypeName = "nvarchar(30)")]
         public string RoleName { get; set; }
 

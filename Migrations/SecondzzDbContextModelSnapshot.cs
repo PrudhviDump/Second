@@ -7,7 +7,7 @@ using Secondzz.Data_Access_Layer.Context;
 
 #nullable disable
 
-namespace Secondzz.Migrations
+namespace Second.Migrations
 {
     [DbContext(typeof(SecondzzDbContext))]
     partial class SecondzzDbContextModelSnapshot : ModelSnapshot
@@ -21,7 +21,7 @@ namespace Secondzz.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("Second.Data_Access_Layer.Models.Message", b =>
+            modelBuilder.Entity("Second.Data_Access_Layer.Models.Chat", b =>
                 {
                     b.Property<int>("MessageId")
                         .ValueGeneratedOnAdd()
@@ -49,7 +49,7 @@ namespace Secondzz.Migrations
 
                     b.HasIndex("SenderId");
 
-                    b.ToTable("Messages");
+                    b.ToTable("Chats");
                 });
 
             modelBuilder.Entity("Secondzz.Data_Access_Layer.Models.Category", b =>
@@ -104,7 +104,6 @@ namespace Secondzz.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProductName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("ProductPrice")
@@ -131,7 +130,6 @@ namespace Secondzz.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoleId"), 1L, 1);
 
                     b.Property<string>("RoleName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(30)");
 
                     b.HasKey("RoleId");
@@ -160,22 +158,18 @@ namespace Secondzz.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"), 1L, 1);
 
                     b.Property<string>("EmailId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Password")
-                        .IsRequired()
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("PhoneNumber")
-                        .IsRequired()
                         .HasColumnType("nvarchar(20)");
 
                     b.Property<int>("RoleId")
                         .HasColumnType("int");
 
                     b.Property<string>("UserName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(50)");
 
                     b.HasKey("UserId");
@@ -185,7 +179,7 @@ namespace Secondzz.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Second.Data_Access_Layer.Models.Message", b =>
+            modelBuilder.Entity("Second.Data_Access_Layer.Models.Chat", b =>
                 {
                     b.HasOne("Secondzz.Data_Access_Layer.Models.Product", "Product")
                         .WithMany()

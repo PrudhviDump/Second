@@ -9,7 +9,7 @@ namespace Secondzz.Data_Access_Layer.Models
         [Key]
         public int ProductId { get; set; }
 
-        [Required]
+       // [Required]
         [Column(TypeName = "nvarchar(max)")]
         public string ProductName { get; set; }
         [Column(TypeName = "nvarchar(max)")]

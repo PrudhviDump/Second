@@ -26,6 +26,7 @@ namespace Secondzz.Data_Access_Layer.Context
                 .HasForeignKey(m => m.ProductId)
                 .HasPrincipalKey(p => p.ProductId);
 
+
             /*modelBuilder.Entity<User>(entity =>
             {
                 entity.HasOne(u => u.Role)

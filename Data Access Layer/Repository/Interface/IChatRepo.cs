@@ -5,8 +5,8 @@ namespace Second.Data_Access_Layer.Repository.Interface
     public interface IChatRepo
     {
         Task<Chat> CreateAsync(Chat chat);
-        Task<List<Message>> GetAllAsync();
-        Task<Message> GetByIdAsync(int id);
-        Task<Message> DeleteAsync(int id);
+        Task<List<Chat>> GetAllAsync();
+        Task<Chat> GetByIdAsync(int id);
+        Task<Chat> DeleteAsync(int id);
     }
 }
