@@ -30,6 +30,6 @@ namespace Secondzz.Business_Logic_Layer.DTO
         [Required]
         [ForeignKey("UserId")]
         public int RoleID { get; set; }
-
+        public RoleDTO Role { get; set; }
     }
 }

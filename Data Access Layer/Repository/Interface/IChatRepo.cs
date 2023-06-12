@@ -8,5 +8,6 @@ namespace Second.Data_Access_Layer.Repository.Interface
         Task<List<Chat>> GetAllAsync();
         Task<Chat> GetByIdAsync(int id);
         Task<Chat> DeleteAsync(int id);
+        Task<Chat> GetByProductIdAsync(int ProductId);
     }
 }

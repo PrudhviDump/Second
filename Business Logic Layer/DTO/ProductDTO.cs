@@ -27,6 +27,7 @@ namespace Second.Business_Logic_Layer.DTO
 
         [ForeignKey("Category")]
         public int CategoryId { get; set; }
+        public Category Category { get; set; }
         //s[MaxLength(50)]
         //public string Status { get; set; }=null;
     }

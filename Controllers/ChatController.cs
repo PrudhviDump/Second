@@ -34,7 +34,7 @@ namespace Second.Controllers
             //Domain Model to DTO
 
 
-            return Ok(mapper.Map<ChatDTO>(chatentity));
+            return Ok("Message Sent");
         }
 
         [HttpGet]
@@ -61,7 +61,19 @@ namespace Second.Controllers
 
         }
 
+        [HttpGet("{id}")]
+        [Authorize(Roles = "User")]
+        public async Task<IActionResult> GetByProductIdAsync([FromRoute] int Productid)
+        {
+            var chatt = await chatRepo.GetByProductIdAsync(Productid);
+            if (chatt == null)
+            {
+                return NotFound();
+            }
 
+            return Ok(chatt);
+
+        }
         /*[HttpDelete]
 
         [Authorize(Roles = "User")]

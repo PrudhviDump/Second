@@ -32,7 +32,7 @@ namespace SwapPortal_API.Infrastructure
             CreateMap<ProductDTO, Product>().ReverseMap();
             CreateMap<ChatDTO, Chat>().ReverseMap();
             CreateMap<AddChatDTO, Chat>().ReverseMap();
-
+            CreateMap<CategoryDTO, Category>().ReverseMap();
          
         }
     }

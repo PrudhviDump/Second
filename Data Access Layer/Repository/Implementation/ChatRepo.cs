@@ -36,13 +36,18 @@ namespace Second.Data_Access_Layer.Repository.Implementation
 
         public async Task<List<Chat>> GetAllAsync()
         {
-            return await dbContext.Chats.Include("Product").Include("User").ToListAsync();
+            return await dbContext.Chats.Include(o => o.Sender).ThenInclude(o => o.Role).Include(o => o.Product).ThenInclude(o => o.Category).Include(o => o.Reciever).ThenInclude(o => o.Role).ToListAsync();
 
         }
 
         public async Task<Chat> GetByIdAsync(int id)
         {
-            return await dbContext.Chats.Include("Product").FirstOrDefaultAsync(x => x.MessageId == id);
+            return await dbContext.Chats.Include(o => o.Sender).ThenInclude(o => o.Role).Include(o => o.Product).ThenInclude(o => o.Category).Include(o => o.Reciever).ThenInclude(o => o.Role).FirstOrDefaultAsync(x => x.MessageId == id);
+        }
+
+        public async Task<Chat>GetByProductIdAsync(int ProductId)
+        {
+            return await dbContext.Chats.Include(o => o.Sender).ThenInclude(o => o.Role).Include(o => o.Product).FirstOrDefaultAsync(x => x.ProductId == ProductId);
         }
     }
 }

@@ -33,9 +33,9 @@ namespace Secondzz.Controllers
             this.productRepo = productRepo;
         }
 
-        [AllowAnonymous]
+       // [AllowAnonymous]
         [HttpPost("AddProduct")]
-      //  [Authorize(Roles = "Anonymous")]
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> Create([FromBody] AddProductRequestDTO addProductRequestDTO)
         {
             //Map DTO to domain Model          
