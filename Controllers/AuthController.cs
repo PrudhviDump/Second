@@ -55,7 +55,7 @@ namespace Secondzz.Controllers
 
 
 
-                return Ok(new AddAuthResponseDTO { token = token, UserName = user.UserName });
+                return Ok(new AddAuthResponseDTO { token = token, UserName = user.UserName, Role = user.RoleId });
             }
             else
             {

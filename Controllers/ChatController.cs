@@ -61,7 +61,7 @@ namespace Second.Controllers
 
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{Productid}")]
         [Authorize(Roles = "User")]
         public async Task<IActionResult> GetByProductIdAsync([FromRoute] int Productid)
         {

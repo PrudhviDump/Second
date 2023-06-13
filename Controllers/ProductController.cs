@@ -86,5 +86,22 @@ namespace Secondzz.Controllers
 
             return NoContent();
         }
+
+        [HttpPut]
+        [Route("{id:int}/admin")]
+        [Authorize(Roles = "admin")]
+        public async Task<IActionResult> ValidateProduct([FromRoute] int id, ProductValidDTO status)
+        {
+            var contentEntity = mapper.Map<Product>(status);
+            contentEntity = await productRepo.UpdateStatus(id, contentEntity);
+            if (contentEntity == null)
+            {
+                return BadRequest();
+            }
+
+
+
+            return Ok(mapper.Map<ProductDTO>(contentEntity));
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Secondzz.Data_Access_Layer.Models;
+using System.Diagnostics.Contracts;
 
 namespace Second.Data_Access_Layer.Repository.Interface
 {
@@ -9,5 +10,6 @@ namespace Second.Data_Access_Layer.Repository.Interface
         Task<Product> GetByIdAsync(int id);
         Task<Product> UpdateAsync(int id, Product product);
         Task<Product> DeleteAsync(int id);
+        Task<Product> UpdateStatus(int id, Product product);
     }
 }

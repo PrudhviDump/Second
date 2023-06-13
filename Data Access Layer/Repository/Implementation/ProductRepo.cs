@@ -63,5 +63,20 @@ namespace Second.Data_Access_Layer.Repository.Implementation
             await dbContext.SaveChangesAsync();
             return existingProduct;
         }
+
+        public async Task<Product> UpdateStatus(int id, Product product)
+        {
+            var existingJob = await dbContext.Products.FirstOrDefaultAsync(x => x.ProductId == id);
+            if (existingJob == null)
+            {
+                return null;
+            }
+            existingJob.Status = product.Status;
+
+
+
+            await dbContext.SaveChangesAsync();
+            return existingJob;
+        }
     }
 }

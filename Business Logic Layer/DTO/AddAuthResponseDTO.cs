@@ -11,5 +11,7 @@ namespace Secondzz.Business_Logic_Layer.DTO
         [StringLength(50, ErrorMessage = "Username must be between 1 and 50 characters.", MinimumLength = 1)]
 
         public string UserName { get; set; }
+        public int UserId { get; set; }
+        public int Role { get; set; }
     }
 }
