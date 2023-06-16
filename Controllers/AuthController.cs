@@ -36,7 +36,7 @@ namespace Secondzz.Controllers
         public IActionResult Login(AddAuthUserLoginDTO loginModel)
         {
 
-            var user = context.Users.Include(x => x.Role).SingleOrDefault(x => x.EmailId == loginModel.EmailId);
+            var user = context.Users.Include(x => x.Role).FirstOrDefault(x => x.EmailId == loginModel.EmailId);
 
             if (user is null)
                 return Unauthorized("Invalid Username or Password!");
@@ -55,7 +55,7 @@ namespace Secondzz.Controllers
 
 
 
-                return Ok(new AddAuthResponseDTO { token = token, UserName = user.UserName, Role = user.RoleId });
+                return Ok(new AddAuthResponseDTO { token = token, UserName = user.UserName, Role = user.RoleId, UserId = user.UserId });
             }
             else
             {

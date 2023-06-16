@@ -28,7 +28,7 @@ namespace Secondzz.Business_Logic_Layer.DTO
         [Column(TypeName = "nvarchar(20)")]
         public string PhoneNumber { get; set; }
         [Required]
-        [ForeignKey("UserId")]
+        [ForeignKey("Role")]
         public int RoleID { get; set; }
         public RoleDTO Role { get; set; }
     }

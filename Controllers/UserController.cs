@@ -72,17 +72,17 @@ namespace Secondzz.Controllers
         }*/
 
         [HttpDelete]
-        [Route("{id:int}/admin")]
+        [Route("{Userid:int}")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Delete([FromRoute] int id)
+        public async Task<IActionResult> Delete([FromRoute] int Userid)
         {
-            var entityDeleted = await userRepo.DeleteAsync(id);
+            var entityDeleted = await userRepo.DeleteAsync(Userid);
             if (entityDeleted == null)
             {
                 return NotFound();
             }
 
-            return NoContent();
+            return Ok("Deleted the user");
         }
     }
 }

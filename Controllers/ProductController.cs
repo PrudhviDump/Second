@@ -45,7 +45,7 @@ namespace Secondzz.Controllers
             //Domain Model to DTO
 
 
-            return Ok(mapper.Map<ProductDTO>(productentity));
+            return Ok("Product added sucessfully");
         }
 
         [AllowAnonymous]

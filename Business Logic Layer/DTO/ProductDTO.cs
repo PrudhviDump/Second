@@ -21,6 +21,7 @@ namespace Second.Business_Logic_Layer.DTO
 
         [ForeignKey("User")]
         public int UserId { get; set; }
+        public User user { get; set; }
 
         [Column(TypeName = "nvarchar(max)")]
         public string ProductDetails { get; set; }
