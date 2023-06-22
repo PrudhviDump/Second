@@ -89,7 +89,7 @@ namespace Secondzz.Controllers
 
         [HttpPut]
         [Route("{id:int}/admin")]
-        [Authorize(Roles = "admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> ValidateProduct([FromRoute] int id, ProductValidDTO status)
         {
             var contentEntity = mapper.Map<Product>(status);
